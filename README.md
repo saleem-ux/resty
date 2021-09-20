@@ -10,9 +10,9 @@
 
 ## Links and Resources
 
-* ### [code sand box](https://codesandbox.io/s/zen-scott-x1z15)
+* ### [code sand box](https://codesandbox.io/s/strange-bouman-uw59t)
 
-* ### [pull request](https://github.com/Duniaalkilany/resty/pull/1)
+* ### [pull request](https://github.com/saleem-ux/resty/pull/1)
 
 # UML
 
