@@ -28,7 +28,7 @@
 
 * ### [lab 26 pull request](https://github.com/saleem-ux/resty/pull/3)
 
-* ### [lab 27 pull request](https://github.com/saleem-ux/resty/pull/2)
+* ### [lab 27 pull request](https://github.com/saleem-ux/resty/pull/5)
 
 ## UML
 
