@@ -22,18 +22,13 @@
 
 ## Links and Resources
 
-
-
 * ### [code sand box /Phase 1](https://codesandbox.io/s/muddy-worker-w6xee)
 
 * ### [code sand box /Phase 2](https://codesandbox.io/s/long-moon-yi1s8)
 
 * ### [lab 26 pull request](https://github.com/saleem-ux/resty/pull/3)
 
-* ### [lab 27 pull request](https://github.com/saleem-ux/resty/pull/5/)
-
-
-
+* ### [lab 27 pull request](https://github.com/saleem-ux/resty/pull/2)
 
 ## UML
 
