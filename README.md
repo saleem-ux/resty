@@ -1,6 +1,6 @@
 # RESTy App
 
-## Author : Dunia Alkilany
+## Author : Saleem Diab
 
 ## Description
 
@@ -22,19 +22,17 @@
 
 ## Links and Resources
 
-* ### [Github Actions](https://github.com/Duniaalkilany/resty/actions)
+* ### [code sand box /Phase 1](https://codesandbox.io/s/zen-scott-x1z15)
 
-* ### [code sand box /Phase 1](https://codesandbox.io/s/friendly-silence-cp725)
+* ### [code sand box /Phase 2](https://codesandbox.io/s/long-moon-yi1s8)
 
-* ### [code sand box /Phase 2](https://codesandbox.io/s/upbeat-yalow-71iw8)
+* ### [lab 26 pull request](https://github.com/saleem-ux/resty/pull/1)
 
-* ### [lab 26 pull request](https://github.com/Duniaalkilany/resty/pull/1)
-
-* ### [lab 27 pull request](https://github.com/Duniaalkilany/resty/pull/2)
+* ### [lab 27 pull request](https://github.com/saleem-ux/resty/pull/2)
 
 ## UML
 
-![img](../images/resty-UML.png)
+![img](./images/lab26.jpg)
 
 ## expicted result /lab 26
 
