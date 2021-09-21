@@ -8,41 +8,47 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
+import { BeatLoader } from 'react-spinners';
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       data: null,
       requestParams: {},
-    };
+      load: false,
+    }
   }
 
-  callApi = (requestParams) => {
-    // mock output
-    const data = {
-      count: 2,
-      results: [
-        { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-        { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-      ],
-    };
-    this.setState({ data, requestParams });
+  callApi = (formData, inputText, responseData) => {
+    console.log('responseData', responseData);
+    console.log('formData', formData);
+    this.setState({
+      data: responseData,
+      requestParams: formData,
+    })
+    console.log('data after set', this.state.data);
   }
 
+  handleLoad(load) {
+    this.setState({
+      load: load,
+    })
+  }
   render() {
+
     return (
       <React.Fragment>
         <Header />
         <div>Request Method: {this.state.requestParams.method}</div>
         <div>URL: {this.state.requestParams.url}</div>
-        <Form handleApiCall={this.callApi} />
-        <Results data={this.state.data} />
+        <Form handleLoad={this.handleLoad} handleApiCall={this.callApi} />
+        {this.state.load ? <BeatLoader load /> : <Results data={this.state.data} />}
         <Footer />
       </React.Fragment>
     );
   }
+
 }
 
 export default App;
