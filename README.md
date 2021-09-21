@@ -12,7 +12,7 @@
 
 * ### [code sand box](https://codesandbox.io/s/muddy-worker-w6xee)
 
-* ### [pull request](https://github.com/Duniaalkilany/resty/pull/1)
+* ### [pull request](https://github.com/saleem-ux/resty/pull/3)
 
 # UML
 
