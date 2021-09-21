@@ -10,7 +10,7 @@
 
 ## Links and Resources
 
-* ### [code sand box](https://codesandbox.io/s/zen-scott-x1z15)
+* ### [code sand box](https://codesandbox.io/s/muddy-worker-w6xee)
 
 * ### [pull request](https://github.com/Duniaalkilany/resty/pull/1)
 
