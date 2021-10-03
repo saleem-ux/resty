@@ -1,5 +1,9 @@
-$backgroundColor: #efefef;
-$radius: 40%;
+.form {
+  background: rgb(10, 10, 10);
+margin-left: -130px;
+margin-top: 50px;
+ 
+}
 
 form {
   display: inline;
@@ -7,7 +11,7 @@ form {
   width: 200px;
 
   label {
-    // display: flex;
+  
     margin: 1rem 0;
 
     input {
@@ -51,11 +55,11 @@ form {
         border-radius: 5px;
 
         &:hover {
-          background: #fff;
+          background: rgba(26, 116, 93, 0.938);
         }
 
         &.active {
-          background: rgba(88, 88, 88, 0.979);
+          background:rgb(255, 166, 0);
         }
       }
     }
