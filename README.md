@@ -212,7 +212,7 @@
 
 * ### [code sand box /Phase 2](https://codesandbox.io/s/long-moon-yi1s8)
 
-* ### [code sand box /Phase 3]()
+* ### [code sand box /Phase 3](https://codesandbox.io/s/inspiring-pateu-8ndbn?file=/src/App.js:376-465)
 
 * ### [lab 26 pull request](https://github.com/saleem-ux/resty/pull/3)
 
