@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState, useEffect, useReducer } from 'react';
 
 import './App.scss';
 
@@ -8,11 +8,53 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
+import History from './components/history';
+
+
+
+
+
+
+
+//initial state
+const initialState = {
+  requests: [],
+}
+
+//reducer function 
+function historyReducer(state = initialState, action) {
+  console.log("action......", action)
+  console.log("state =", state)
+  const { type, payload } = action;
+  switch (type) {
+    case 'addSearch':
+      const requests = [...state.requests, payload];
+      console.log('requests', requests);
+
+      return { requests };
+    default:
+      return state;
+  }
+}
+
+//addsearch action 
+function addSearch(requestParams, data) {
+  return {
+    type: 'addSearch',
+    payload: {
+      url: requestParams.url,
+      method: requestParams.method,
+      result: data,
+    },
+  };
+}
 
 
 
 function App() {
+  const [state, dispatch] = useReducer(historyReducer, initialState);
   const [data, setdata] = useState(null);
+  const [loading, setloading] = useState(true);
   const [requestParams, setrequestParams] = useState({});
 
   async function callApi(requestParams) {
@@ -24,15 +66,14 @@ function App() {
       try {
         const raw = await fetch(requestParams.url);
         const data = await raw.json();
-        setdata(data);
+        setdata(null);
+        setloading(true);
+        setTimeout(() => {
+          setloading(false);
+          setdata(data);
+        }, 800);
+        dispatch(addSearch(requestParams, data));
       } catch (e) {
-        // const data = {
-        //   count: 2,
-        //  results: [
-        //     { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-        //    { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-        // ],
-        // };
         setdata(null);
       }
     })()
@@ -46,7 +87,8 @@ function App() {
         <div>Request Method: {requestParams.method}</div>
         <div>URL: {requestParams.url}</div>
       </div>
-      <Results data={data} />
+      <History handleApiCall={callApi} history={state.requests} />
+      <Results data={data} loading={loading} />
       <Footer />
     </>
   );

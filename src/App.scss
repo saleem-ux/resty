@@ -12,8 +12,7 @@ body {
   height: 100%;
 
   #root {
-    // display: flex;
-    // flex-direction: column;
+  
     height: 100%;
   }
 
@@ -21,6 +20,7 @@ body {
     background: darken($backgroundColor, 50);
     border-top: 1px solid #eee;
     padding: 1em 3em;
+    font-weight: bolder;
     margin: 0;
   }
 
@@ -29,6 +29,8 @@ body {
     border-bottom: 1px solid #eee;
     color: #eee;
     padding: 0;
+    font-weight: bolder;
+   
     margin: 0;
     text-align: center;
   }
@@ -39,7 +41,14 @@ body {
   }
 
   .request {
-    margin-left: 25% !important;
-    margin-top: 50px !important;
+    margin-top: 20px;
+    margin-left: 830px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+background: rgb(12, 12, 12);
+color: white;
+font-weight: bolder;
+font-size:large;
   }
 }

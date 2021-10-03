@@ -16,6 +16,7 @@ function Form(props) {
             body: body,
         };
         props.handleApiCall(formData);
+        e.target.reset();
     }
 
     function handleMethod(e) {
