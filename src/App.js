@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 
 import './App.scss';
 
@@ -8,47 +8,48 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
-import { BeatLoader } from 'react-spinners';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-      load: false,
-    }
+
+
+function App() {
+  const [data, setdata] = useState(null);
+  const [requestParams, setrequestParams] = useState({});
+
+  async function callApi(requestParams) {
+    setrequestParams(requestParams);
   }
 
-  callApi = (formData, inputText, responseData) => {
-    console.log('responseData', responseData);
-    console.log('formData', formData);
-    this.setState({
-      data: responseData,
-      requestParams: formData,
-    })
-    console.log('data after set', this.state.data);
-  }
+  useEffect(() => {
+    (async function () {
+      try {
+        const raw = await fetch(requestParams.url);
+        const data = await raw.json();
+        setdata(data);
+      } catch (e) {
+        // const data = {
+        //   count: 2,
+        //  results: [
+        //     { name: 'fake thing 1', url: 'http://fakethings.com/1' },
+        //    { name: 'fake thing 2', url: 'http://fakethings.com/2' },
+        // ],
+        // };
+        setdata(null);
+      }
+    })()
+  }, [requestParams]);
 
-  handleLoad(load) {
-    this.setState({
-      load: load,
-    })
-  }
-  render() {
-
-    return (
-      <React.Fragment>
-        <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
-        <Form handleLoad={this.handleLoad} handleApiCall={this.callApi} />
-        {this.state.load ? <BeatLoader load /> : <Results data={this.state.data} />}
-        <Footer />
-      </React.Fragment>
-    );
-  }
-
+  return (
+    <>
+      <Header />
+      <Form handleApiCall={callApi} />
+      <div className="request">
+        <div>Request Method: {requestParams.method}</div>
+        <div>URL: {requestParams.url}</div>
+      </div>
+      <Results data={data} />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
