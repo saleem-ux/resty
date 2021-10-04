@@ -1,102 +1,105 @@
-import React from "react";
-import { useState } from "react";
-import axios from 'axios';
-import "./form.scss";
+import { useState } from 'react';
+
+import './form.scss';
 
 function Form(props) {
-    const [method, setMethod] = useState('get');
-    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon');
-    const [showText, setShowText] = useState(false);
-    const [inputText, setInputText] = useState({});
-    async function handleSubmit(e) {
+    const [method, setmethod] = useState('get');
+    const [url, seturl] = useState('');
+    const [body, setbody] = useState('');
+    const [ShowBody, setShowBody] = useState(false);
+
+    function handleSubmit(e) {
         e.preventDefault();
-        try {
-            console.log('input', inputText);
-            const response = await axios({
-                method: method,
-                url: url,
-            });
-
-            const formData = {
-                method: method,
-                url: url,
-            };
-            console.log('Data', response);
-            console.log('formData', formData);
-            console.log('url', url);
-            props.handleApiCall(formData, inputText, response.data);
-            setShowText(false)
-        } catch (e) {
-            console.error(e);
-        }
-    }
-    function handeleText(e) {
-        setShowText(true);
-        setMethod(e.target.id);
-
-    }
-    function handeleInputText(e) {
-        setInputText(e.target.value);
-    }
-    function handelMethod(e) {
-        setMethod(e.target.id);
-
+        const formData = {
+            method: method,
+            url: url,
+            body: body,
+        };
+        props.handleApiCall(formData);
+        e.target.reset();
     }
 
-    if (method === 'get' || method === 'delete') {
+    function handleMethod(e) {
+        setmethod(e.target.id);
 
-        return (
-            <>
-                <form onSubmit={handleSubmit}>
-                    <label >
-                        <span>URL: </span>
-                        <input name='link' type='URL' onChange={e => setUrl(e.target.value)} />
-                    </label>
-                    <label className="methods">
-                        <input type="radio" name="btn" id="get" onClick={handelMethod} />
-                        <label>GET</label> &nbsp; &nbsp;
-                        <input type="radio" name="btn" id="post" onClick={handeleText} />
-                        <label>POST</label> &nbsp; &nbsp;
-                        <input type="radio" name="btn" id="put" onClick={handeleText} />
-                        <label>PUT</label> &nbsp; &nbsp;
-                        <input type="radio" name="btn" id="delete" onClick={handelMethod} />
-                        <label>DELETE</label> &nbsp; &nbsp;
-
-                    </label>
-                    <button type="submit" data-testid="mybtn">GO!</button>
-
-                </form>
-            </>
-        );
-    }
-    if (method === 'post' || method === 'put') {
-
-        return (
-            <>
-                <form onSubmit={handleSubmit}>
-                    <label >
-                        <span>URL: </span>
-                        <input name='link' type='URL' onChange={e => setUrl(e.target.value)} />
-                    </label>
-                    <label className="methods">
-                        <input type="radio" name="btn" id="get" onClick={handelMethod} />
-                        <label>GET</label> &nbsp; &nbsp;
-                        <input type="radio" name="btn" id="post" onClick={handeleText} />
-                        <label>POST</label> &nbsp; &nbsp;
-                        <input type="radio" name="btn" id="put" onClick={handeleText} />
-                        <label>PUT</label> &nbsp; &nbsp;
-                        <input type="radio" name="btn" id="delete" onClick={handelMethod} />
-                        <label>DELETE</label> &nbsp; &nbsp;
-                    </label>
-                    <button type="submit" data-testid="mybtn">GO!</button>
-                    {showText &&
-                        <textarea id="w3review" name="w3review" rows="10" cols="50" onChange={handeleInputText} />}
-                </form>
-            </>
-        );
+        e.target.id === 'post' || e.target.id === 'put'
+            ? setShowBody(true)
+            : setShowBody(false);
     }
 
+    function handleUrl(e) {
+        seturl(e.target.value);
+        // console.log(url);
+    }
 
+    function handleBody(e) {
+        setbody(e.target.value);
+        // console.log(body);
+    }
+
+    return (
+        <div className="form">
+            <form onSubmit={handleSubmit}>
+                <label>
+                    <input
+                        onChange={(e) => handleUrl(e)}
+                        data-testid="urlInput"
+                        placeholder="URL"
+                        name="url"
+                        type="text"
+                    />
+                    <button data-testid="mybtn" type="submit">
+                        GO!
+                    </button>
+                    <br />
+                    {ShowBody && (
+                        <>
+                            <textarea
+                                onChange={(e) => handleBody(e)}
+                                placeholder="body"
+                                name="body"
+                                rows="4"
+                                cols="50"
+                            ></textarea>
+                            <br />
+                        </>
+                    )}
+                </label>
+
+                <label className="methods">
+                    <span
+                        onClick={(e) => handleMethod(e)}
+                        className={method === 'get' ? 'active' : ''}
+                        id="get"
+                        data-testid="methodInput"
+                    >
+                        GET
+                    </span>
+                    <span
+                        onClick={(e) => handleMethod(e)}
+                        className={method === 'post' ? 'active' : ''}
+                        id="post"
+                    >
+                        POST
+                    </span>
+                    <span
+                        onClick={(e) => handleMethod(e)}
+                        className={method === 'put' ? 'active' : ''}
+                        id="put"
+                    >
+                        PUT
+                    </span>
+                    <span
+                        onClick={(e) => handleMethod(e)}
+                        className={method === 'delete' ? 'active' : ''}
+                        id="delete"
+                    >
+                        DELETE
+                    </span>
+                </label>
+            </form>
+        </div>
+    );
 }
 
 export default Form;

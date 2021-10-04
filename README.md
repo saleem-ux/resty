@@ -1,44 +1,57 @@
-# RESTy App
+# RESTy App :
 
 ## Author : Saleem Diab
 
-## Description
+## Description :
 
-### 4-Phase build of the RESTy application, written in React. In this first phase, our goal is to setup the basic scaffolding of the application, with intent being to add more functionality to the system as we go. This initial build sets up the file structure so that we can progressively build this application in a scalable manner
+### 4-Phase build of the RESTy application, written in React. In this first phase, our goal is to setup the basic scaffolding of the application, with intent being to add more functionality to the system as we go. This initial build sets up the file structure so that we can progressively build this application in a scalable manner.
 
-## RESTy Phase 1
+## RESTy Phase 1:
 
 ### Begin work on the RESTy API testing application
 
-## RESTy Phase 2
+## RESTy Phase 2:
 
 ### In phase 2, we will be receiving user input in preparation of connecting to live APIs, using the useState() hook in our functional components
 
-### The following user stories detail the major functionality for this phase of the project
+## RESTy Phase 3:
 
-* ### As a user, I want to enter the REST Method and URL to an API
+### In phase 3, we will be connecting RESTy to live APIs, fetching and displaying remote data. Our primary focus will be to service GET requests
 
-* ### As a user, I want to see a summary of my request as well as results returned from an API request in my browser in a readable format
+## RESTy Phase 4:
 
-## Links and Resources
+### In phase 4, we will be tracking every API call and storing it in history
+
+## Links and Resources:
+
+
 
 * ### [code sand box /Phase 1](https://codesandbox.io/s/muddy-worker-w6xee)
 
 * ### [code sand box /Phase 2](https://codesandbox.io/s/long-moon-yi1s8)
 
+* ### [code sand box /Phase 3](https://codesandbox.io/s/inspiring-pateu-8ndbn?file=/src/App.js:376-465)
+
+* ### [code sand box /Phase 4](https://codesandbox.io/s/sweet-curran-egoif)
+
 * ### [lab 26 pull request](https://github.com/saleem-ux/resty/pull/3)
 
 * ### [lab 27 pull request](https://github.com/saleem-ux/resty/pull/5)
 
-## UML
+* ### [lab 28 pull request](https://github.com/saleem-ux/resty/pull/6)
 
-![img](./images/lab26.jpg)
+* ### [lab 29 pull request ](https://github.com/saleem-ux/resty/pull/7)
 
-## expicted result /lab 26
+## UML : 
 
-* ### any link
+![img](./images/lab28.png)
 
-  * ### get
+## result /lab 26 :
+* ### any link:
+   
+    - ### get
+
+ 
 
   ```
 
@@ -58,11 +71,12 @@
 
   ```
 
-## expicted result /lab 27
+
+## expicted result /lab 27-28 :
 
 * ### randomURL
 
-  * ### get or post or putor delete​
+    - ### get or post or putor delete​
 
 ### Request Method: get or post or put or delete URL: randomURL
 
@@ -70,14 +84,12 @@
   loading sppiner
 
 ```  
-
 ​
+* ### valid api URL example : https://pokeapi.co/api/v2/pokemon
 
-* ### valid api URL example : <https://pokeapi.co/api/v2/pokemon>
+    - ### get or post or put or delete​
 
-  * ### get or post or put or delete​
-
-### Request Method: get or post or put or delete URL: <https://pokeapi.co/api/v2/pokemon>
+### Request Method: get or post or put or delete URL: https://pokeapi.co/api/v2/pokemon
 
 ```
   {
@@ -167,11 +179,16 @@
     }
   ]
 }
-© Dunia Alkilany-2021
+© Saleem Diab-2021
 
 ```
 
-## Test Report
+
+
+## result/lab 29 :
+![img](./images/result29.png)
+
+## Test Report /lab 27:
 
 ![img](./images/lab27-test1.png)
 
@@ -180,3 +197,4 @@
 ![img](./images/test2-lab27.png)
 
 ![img](./images/lab27-tests.png)
+
